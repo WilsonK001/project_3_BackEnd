@@ -1,5 +1,8 @@
 {
   "name": "project_3_backend",
+  "engine": {
+    "node": "14.17.3"
+  },
   "version": "1.0.0",
   "description": "Wilson",
   "main": "server.js",
@@ -18,6 +21,8 @@
   },
   "homepage": "https://github.com/WilsonK001/project_3_BackEnd#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "mongoose": "^5.13.5"
   }
 }
