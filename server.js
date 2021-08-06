@@ -7,6 +7,9 @@ require('dotenv').config()
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT
 
+app.get('/', (req, res)=>{
+    res.send('Peg & Wil')
+})
 
 
 //DATABASE
