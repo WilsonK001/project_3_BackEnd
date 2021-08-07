@@ -1,0 +1,28 @@
+{
+  "name": "project_3_backend",
+  "engine": {
+    "node": "14.17.3"
+  },
+  "version": "1.0.0",
+  "description": "Wilson",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilsonK001/project_3_BackEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WilsonK001/project_3_BackEnd/issues"
+  },
+  "homepage": "https://github.com/WilsonK001/project_3_BackEnd#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  }
+}
