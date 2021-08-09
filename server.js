@@ -12,10 +12,7 @@ const cors = require('cors')
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT
 
-app.get('/', (req, res)=>{
-    res.send('Peg & Wil')
 
-})
 
 ////////MIDDLEWARE////
 app.use(express.json())
