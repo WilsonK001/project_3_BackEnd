@@ -39,7 +39,7 @@ router.delete('/:id', (req, res)=>{
 
 
 //////UPDATE ROUTE/////
-router.put('/', (req, res)=>{
+router.put('/:id', (req, res)=>{
     Car.findByIdAndUpdate(req.params.id, (err, updatedCar)=>{
         res.json(updatedCar)
     })
