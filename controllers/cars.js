@@ -40,7 +40,7 @@ router.delete('/:id', (req, res)=>{
 
 //////UPDATE ROUTE/////
 router.put('/:id', (req, res)=>{
-    Car.findByIdAndUpdate(req.params.id, (err, updatedCar)=>{
+    Car.findByIdAndUpdate(req.params.id, req.body,{new:true}, (err, updatedCar)=>{
         res.json(updatedCar)
     })
 
