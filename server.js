@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 require('dotenv').config()
+const mongoose = require('mongoose')
+const { allowedNodeEnvironmentFlags } = require('process')
+const carsController = require('./controllers/cars.js')
+
+const cors = require('cors')
 
 
 
@@ -9,12 +14,23 @@ const PORT = process.env.PORT
 
 app.get('/', (req, res)=>{
     res.send('Peg & Wil')
+
 })
+
+////////MIDDLEWARE////
+app.use(express.json())
+app.use(cors())
+app.use('/cars', carsController)
+
+app.use(express.urlencoded({extended: true }))
 
 
 //DATABASE
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI
+
+
+
 
 
 // // Error / success
@@ -32,6 +48,20 @@ const MONGODB_URI = process.env.MONGODB_URI;
 //localhost:3000
 // app.get('/' , (req, res) => {
 //     res.send('Hello World!')
+
+///////DATABASE CONNECTION////
+
+mongoose.connect(
+    'mongodb+srv://wilson:12345@cluster0.flmdm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false
+    }
+)
+mongoose.connection.once('open', ()=>{
+    console.log('connected to mongod');
+})
   
   
 
