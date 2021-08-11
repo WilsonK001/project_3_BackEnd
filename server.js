@@ -44,13 +44,14 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // Routes
 //___________________
 //localhost:3000
-// app.get('/' , (req, res) => {
-//     res.send('Hello World!')
+app.get('/' , (req, res) => {
+    res.send('Hello World!')
+})
 
 ///////DATABASE CONNECTION////
 
 mongoose.connect(
-    'mongodb+srv://wilson:12345@cluster0.flmdm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    'mongodb+srv://WilsonK:General@cluster0.flmdm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
