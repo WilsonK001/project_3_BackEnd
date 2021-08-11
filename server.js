@@ -4,6 +4,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const { allowedNodeEnvironmentFlags } = require('process')
 const carsController = require('./controllers/cars.js')
+const db = mongoose.connection
 
 const cors = require('cors')
 
@@ -30,10 +31,10 @@ const MONGODB_URI = process.env.MONGODB_URI
 
 
 
-// // Error / success
-// db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-// db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
-// db.on('disconnected', () => console.log('mongo disconnected'));
+// Error / success
+db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 
