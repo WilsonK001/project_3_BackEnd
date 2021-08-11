@@ -45,7 +45,8 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 //localhost:3000
 app.get('/' , (req, res) => {
-    res.send('Hello World!')
+    // res.send('Hello World!')
+    res.redirect('/cars')
 })
 
 ///////DATABASE CONNECTION////
