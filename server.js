@@ -52,7 +52,8 @@ app.get('/' , (req, res) => {
 ///////DATABASE CONNECTION////
 
 mongoose.connect(
-    'mongodb+srv://WilsonK:General@cluster0.flmdm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+
+    MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
