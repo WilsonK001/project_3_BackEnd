@@ -18,3 +18,5 @@ users.post('/users', (req, res)=>{
         res.json(createdUser)
     })
 })
+
+module.exports = users
