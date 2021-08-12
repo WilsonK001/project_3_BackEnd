@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const { allowedNodeEnvironmentFlags } = require('process')
 const carsController = require('./controllers/cars.js')
 const db = mongoose.connection
+const userController = require('./controllers/users_controller.js')
 
 const cors = require('cors')
 
@@ -19,7 +20,7 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cors())
 app.use('/cars', carsController)
-
+app.use('/users', userController)
 app.use(express.urlencoded({extended: true }))
 
 
