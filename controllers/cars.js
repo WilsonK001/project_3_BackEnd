@@ -4,7 +4,6 @@ const Car = require('../models/cars.js')
 
 
 
-
 ///////////////////////////
 /////////////ROUTES///////
 /////////////////////////
@@ -13,7 +12,7 @@ const Car = require('../models/cars.js')
 router.get('/', (req, res)=>{
     Car.find({}, (err, foundCar)=>{
         res.json(foundCar)
-        
+
     })
 })
 

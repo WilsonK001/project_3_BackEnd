@@ -5,7 +5,7 @@ const user = require('../models/users.js')
 
 
 ///Users Routes, get and post
-users.get('/users', (req, res)=>{
+users.get('/', (req, res)=>{
     user.find({}, (err, foundUser)=>{
         res.json(foundUser)
         
@@ -13,7 +13,7 @@ users.get('/users', (req, res)=>{
 })
 
 
-users.post('/users', (req, res)=>{
+users.post('/', (req, res)=>{
     user.create(req.body, (err, createdUser)=>{
         res.json(createdUser)
     })
