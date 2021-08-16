@@ -18,7 +18,7 @@ const PORT = process.env.PORT
 
 ////////MIDDLEWARE////
 app.use(express.json())
-app.use(cors())
+app.use(cors({origin: 'https://cardealershipfrontend1.herokuapp.com'}))
 app.use('/cars', carsController)
 app.use('/users', usersController)
 app.use(express.urlencoded({extended: true }))
