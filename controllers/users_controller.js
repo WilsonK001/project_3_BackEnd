@@ -13,7 +13,8 @@ users.get('/', (req, res)=>{
 })
 
 
-users.post('/', (req, res)=>{
+users.post('/create', (req, res)=>{
+    console.log("creating a new user")
     user.create(req.body, (err, createdUser)=>{
         res.json(createdUser)
     })

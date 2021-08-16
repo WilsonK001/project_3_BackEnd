@@ -10,6 +10,7 @@ const Car = require('../models/cars.js')
 
 /////INDEX/////
 router.get('/', (req, res)=>{
+    console.log('accessing cars')
     Car.find({}, (err, foundCar)=>{
         res.json(foundCar)
 
