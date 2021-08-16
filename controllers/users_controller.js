@@ -6,10 +6,13 @@ const user = require('../models/users.js')
 
 ///Users Routes, get and post
 users.get('/', (req, res)=>{
+    res.send("Users controller")
+    /*
     user.find({}, (err, foundUser)=>{
         res.json(foundUser)
         
     })
+    */
 })
 
 
