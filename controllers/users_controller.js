@@ -15,6 +15,7 @@ users.get('/', (req, res)=>{
 // signup part
 const saltRounds = 10
 users.post('/', (req, res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*')
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         User.create({
             username: username,
