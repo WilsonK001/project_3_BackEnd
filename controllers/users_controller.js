@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt')
 const express = require('express')
 const users = express.Router()
 const User = require('../models/users.js')
+const cors = require('cors')
 
 
 ///Users Routes, get and post
@@ -14,7 +15,7 @@ users.get('/', (req, res)=>{
 
 // signup part
 const saltRounds = 10
-users.post('/', (req, res)=>{
+users.post('/', cors(), (req, res, next)=>{
     res.setHeader('Access-Control-Allow-Origin', '*')
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         User.create({
