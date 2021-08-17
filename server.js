@@ -3,10 +3,7 @@ const app = express()
 require('dotenv').config()
 const mongoose = require('mongoose')
 const { allowedNodeEnvironmentFlags } = require('process')
-const carsController = require('./controllers/cars.js')
 const db = mongoose.connection
-const usersController = require('./controllers/users_controller.js')
-
 const cors = require('cors')
 
 
@@ -18,7 +15,12 @@ const PORT = process.env.PORT
 
 ////////MIDDLEWARE////
 app.use(express.json())
-app.use(cors({origin: 'https://cardealershipfrontend1.herokuapp.com'}))
+app.use(cors())
+
+
+const carsController = require('./controllers/cars.js')
+const usersController = require('./controllers/users_controller.js')
+
 app.use('/cars', carsController)
 app.use('/users', usersController)
 app.use(express.urlencoded({extended: true }))
