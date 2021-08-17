@@ -14,7 +14,7 @@ const PORT = process.env.PORT
 
 
 ////////MIDDLEWARE////
-app.use(cors())
+app.use(cors({origin: '*'}))
 app.use(express.json())
 
 
@@ -23,7 +23,7 @@ const usersController = require('./controllers/users_controller.js')
 
 app.use('/cars', carsController)
 app.use('/users', usersController)
-app.use(express.urlencoded({extended: true }))
+//app.use(express.urlencoded({extended: true }))
 
 
 //DATABASE
