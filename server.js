@@ -4,8 +4,8 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const { allowedNodeEnvironmentFlags } = require('process')
 const db = mongoose.connection
+const session = require('express-session')
 const cors = require('cors')
-
 
 
 // Allow use of Heroku's port or your own local port, depending on the environment
@@ -14,16 +14,24 @@ const PORT = process.env.PORT
 
 
 ////////MIDDLEWARE////
-app.use(cors({origin: '*'}))
 app.use(express.json())
-
+app.use(cors())
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+)
 
 const carsController = require('./controllers/cars.js')
 const usersController = require('./controllers/users_controller.js')
+const sessionsController = require('./controllers/sessions.js')
 
 app.use('/cars', carsController)
 app.use('/users', usersController)
-//app.use(express.urlencoded({extended: true }))
+app.use('/sessions', sessionsController)
+app.use(express.urlencoded({extended: true }))
 
 
 //DATABASE
@@ -49,7 +57,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 //localhost:3000
 app.get('/' , (req, res) => {
     // res.send('Hello World!')
-    res.redirect('/users')
+    res.redirect('/cars')
 })
 
 ///////DATABASE CONNECTION////
@@ -71,3 +79,4 @@ mongoose.connection.once('open', ()=>{
 
 
 app.listen(PORT, () => console.log( 'project3 loading......:', PORT));
+
